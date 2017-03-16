@@ -31,9 +31,49 @@ return float(player_moves) - 4 * float(opponent_moves)
 ```
 ## Results
 ### Data
+```
+*************************
+ Evaluating: ID_Improved 
+*************************
 
+Playing Matches:
+----------
+tournament.py:100: UserWarning: One or more agents lost a match this round due to timeout. The get_move() function must return before time_left() reaches 0 ms. You will need to leave some time for the function to return, and may need to increase this margin to avoid timeouts during  tournament play.
+  warnings.warn(TIMEOUT_WARNING)
+  Match 1: ID_Improved vs   Random    	Result: 15 to 5
+  Match 2: ID_Improved vs   MM_Null   	Result: 14 to 6
+  Match 3: ID_Improved vs   MM_Open   	Result: 14 to 6
+  Match 4: ID_Improved vs MM_Improved 	Result: 10 to 10
+  Match 5: ID_Improved vs   AB_Null   	Result: 12 to 8
+  Match 6: ID_Improved vs   AB_Open   	Result: 14 to 6
+  Match 7: ID_Improved vs AB_Improved 	Result: 15 to 5
+
+
+Results:
+----------
+ID_Improved         67.14%
+
+*************************
+   Evaluating: Student   
+*************************
+
+Playing Matches:
+----------
+  Match 1:   Student   vs   Random    	Result: 18 to 2
+  Match 2:   Student   vs   MM_Null   	Result: 16 to 4
+  Match 3:   Student   vs   MM_Open   	Result: 12 to 8
+  Match 4:   Student   vs MM_Improved 	Result: 13 to 7
+  Match 5:   Student   vs   AB_Null   	Result: 17 to 3
+  Match 6:   Student   vs   AB_Open   	Result: 11 to 9
+  Match 7:   Student   vs AB_Improved 	Result: 12 to 8
+
+
+Results:
+----------
+Student             70.71%
+```
 ### Analysis
-
+The results have been tested 5 times on tournaments of 20 games. It shows a tiny improvement over ID_Improved. Don't have a precise explanantion. I feel being aggressive in this game is important but maybe my multiplier is to high and "hide" better options for the player, while taking too much into account the reduction of the opponent's moves.
 
 # Heuristic 2: Aggressive player trying to keep the center
 ## Description
@@ -120,3 +160,11 @@ def adaptive(game, player):
 
 
 # Conclusion / next steps
+I feel I've clearly stumbled upon an important parameter with the hidden rule "keep the center !"
+As explained in my analysis, is seems logical to me as these squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent is a good starting point.
+
+I'm quite happy with the results, but I feel I could go much further. I think that my AI should adapt its strategy during the game. For example, I thought that following my opponent's path being close to him (1 square away from him) was a good option as a first player during the first part of the game. But my first tries haven't been successfull...
+Another feeling concerns the symmetries of the game. I've not done anything with it, but I think I could be more efficient taking that into account.
+
+Last but not least, I should tweak the multipliers and levels to find the most accurate results.
+Great experience anyway. And a new work in progress with the objective of improving this AI.
