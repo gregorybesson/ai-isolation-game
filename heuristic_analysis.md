@@ -15,7 +15,7 @@ here is the list I've created after this analysis, containing the parameters I f
 - The behavior I should have during the game: Agressive or defensive ? Does it have to change during the game ?
 - Following the previous sentence, Should I try to take a square when the opponent has this square as option (attack) or should I avoid it ?
 
-After many "heuristic tentatives", playing with paramaters, I end up with 3 heuristic trying to find a way to beat the ID improved heuristic:
+After many "heuristic tentatives", playing with paramaters, I ended up with 3 heuristics trying to find a way to beat the ID improved heuristic:
 - Heuristic 1: Aggressive player
 - Heuristic 2: Aggressive player trying to keep the center
 - Heuristic 3: Aggressive player trying to keep center While 60% of the game board is free, then becoming more defensive.
@@ -33,7 +33,67 @@ return float(player_moves) - 2 * float(opponent_moves)
 
 # Heuristic 2: Aggressive player trying to keep the center
 ## Description
+I refrain a little bit my aggressivity (the multiplier is reduced to 1), but this time I take into account the 9 squares composing the center of the board. And I will privilege these moves for the player while trying to reduce the center moves from my opponent.
+
+```
+center_x = game.width//2
+center_y = game.height//2
+center_locations = [(x, y) for x in [center_x - 1, center_x, center_x + 1] for y in [center_y - 1, center_y, center_y + 1]]
+
+player_moves = len(game.get_legal_moves(player))
+opponent_moves = len(game.get_legal_moves(game.get_opponent(player)))
+
+player_center_moves = len([m for m in game.get_legal_moves(player) if m in center_locations])
+opponent_center_moves = len([m for m in game.get_legal_moves(game.get_opponent(player)) if m in center_locations])
+
+return ((player_moves + player_center_moves) - (opponent_moves + opponent_center_moves))
+```
+
 ## Results
+### data
+```
+*************************
+ Evaluating: ID_Improved 
+*************************
+
+Playing Matches:
+----------
+tournament.py:100: UserWarning: One or more agents lost a match this round due to timeout. The get_move() function must return before time_left() reaches 0 ms. You will need to leave some time for the function to return, and may need to increase this margin to avoid timeouts during  tournament play.
+  warnings.warn(TIMEOUT_WARNING)
+  Match 1: ID_Improved vs   Random    	Result: 16 to 4
+  Match 2: ID_Improved vs   MM_Null   	Result: 13 to 7
+  Match 3: ID_Improved vs   MM_Open   	Result: 11 to 9
+  Match 4: ID_Improved vs MM_Improved 	Result: 12 to 8
+  Match 5: ID_Improved vs   AB_Null   	Result: 15 to 5
+  Match 6: ID_Improved vs   AB_Open   	Result: 13 to 7
+  Match 7: ID_Improved vs AB_Improved 	Result: 13 to 7
+
+
+Results:
+----------
+ID_Improved         66.43%
+
+*************************
+   Evaluating: Student   
+*************************
+
+Playing Matches:
+----------
+  Match 1:   Student   vs   Random    	Result: 17 to 3
+  Match 2:   Student   vs   MM_Null   	Result: 17 to 3
+  Match 3:   Student   vs   MM_Open   	Result: 14 to 6
+  Match 4:   Student   vs MM_Improved 	Result: 13 to 7
+  Match 5:   Student   vs   AB_Null   	Result: 17 to 3
+  Match 6:   Student   vs   AB_Open   	Result: 15 to 5
+  Match 7:   Student   vs AB_Improved 	Result: 14 to 6
+
+
+Results:
+----------
+Student             76.43%
+```
+### Analysis
+The results have been tested 5 times on tournaments of 20 games. They show an average improvement of 10% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. 
 
 # Heuristic 3: Aggressive player trying to keep center While 60% of the game board is free, then becoming more defensive.
 ## Description
