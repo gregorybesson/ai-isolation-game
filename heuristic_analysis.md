@@ -199,10 +199,14 @@ The results have been tested 5 times on tournaments of 20 games. I'm quite disap
 
 # Conclusion / next steps
 I feel I've clearly stumbled upon an important parameter with the hidden rule "keep the center !"
+Heuristic 2 is the winner.
 As explained in my analysis, it seems logical to me as these squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent is a good starting point.
 
 I'm quite happy with the results, but I feel I could go much further. I think that my AI should adapt its strategy during the game. For example, I thought that following my opponent's path being close to him (1 square away from him) was a good option as a first player during the first part of the game. But my first tries haven't been successfull...
 Another feeling concerns the symmetries of the game. I've not done anything with it, but I think I could be more efficient taking that into account.
 
 Last but not least, I should tweak the multipliers and levels to find the most accurate results.
+
+The next steps will be dedicated to testing these parameters and their coefficients. Another interesting topic being to try optimizing the code to go faster (then deeper in the levels then being more confident with the results) in the iterative deepening search.
+
 Great experience anyway. And a new work in progress with the objective of improving this AI.
