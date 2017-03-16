@@ -17,8 +17,8 @@ here is the list I've created after this analysis, containing the parameters I f
 
 After many "heuristic tentatives", playing with paramaters, I ended up with 3 heuristics trying to find a way to beat the ID improved heuristic:
 - Heuristic 1: Aggressive player
-- Heuristic 2: Aggressive player trying to keep the center
-- Heuristic 3: Aggressive player trying to keep center While 60% of the game board is free, then becoming more defensive.
+- Heuristic 2: Moderately aggressive player trying to keep the center
+- Heuristic 3: Aggressive player While 60% of the game board is free, then becoming less aggressive but trying to keep the center.
 
 
 # Heuristic 1: Aggressive player
@@ -99,8 +99,9 @@ Student             76.43%
 ### Analysis
 The results have been tested 5 times on tournaments of 20 games. They show an average improvement of 10% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. 
 
-# Heuristic 3: Aggressive player trying to keep center While 60% of the game board is free, then becoming more defensive.
+# Heuristic 3: Aggressive player while 60% of the game board is free, then becoming less aggressive keeping the center
 ## Description
+
 ## Results
 
 # Conclusion / next steps
