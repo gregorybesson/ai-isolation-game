@@ -155,13 +155,51 @@ def adaptive(game, player):
 ```
 ## Results
 ### Data
+```
+*************************
+ Evaluating: ID_Improved 
+*************************
 
+Playing Matches:
+----------
+  Match 1: ID_Improved vs   Random    	Result: 18 to 2
+  Match 2: ID_Improved vs   MM_Null   	Result: 16 to 4
+  Match 3: ID_Improved vs   MM_Open   	Result: 11 to 9
+  Match 4: ID_Improved vs MM_Improved 	Result: 10 to 10
+  Match 5: ID_Improved vs   AB_Null   	Result: 16 to 4
+  Match 6: ID_Improved vs   AB_Open   	Result: 15 to 5
+  Match 7: ID_Improved vs AB_Improved 	Result: 12 to 8
+
+
+Results:
+----------
+ID_Improved         70.00%
+
+*************************
+   Evaluating: Student   
+*************************
+
+Playing Matches:
+----------
+  Match 1:   Student   vs   Random    	Result: 16 to 4
+  Match 2:   Student   vs   MM_Null   	Result: 13 to 7
+  Match 3:   Student   vs   MM_Open   	Result: 14 to 6
+  Match 4:   Student   vs MM_Improved 	Result: 9 to 11
+  Match 5:   Student   vs   AB_Null   	Result: 18 to 2
+  Match 6:   Student   vs   AB_Open   	Result: 12 to 8
+  Match 7:   Student   vs AB_Improved 	Result: 13 to 7
+
+
+Results:
+----------
+Student             67.86%
+```
 ### Analysis
-
+The results have been tested 5 times on tournaments of 20 games. I'm quite disappointed with these results. But thinking about it, It seems eventually logical: Keeping the center should be more important at the beginning of the game... But I feel creating an adaptive strategy is a good idea. I'll have to further study this option.
 
 # Conclusion / next steps
 I feel I've clearly stumbled upon an important parameter with the hidden rule "keep the center !"
-As explained in my analysis, is seems logical to me as these squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent is a good starting point.
+As explained in my analysis, it seems logical to me as these squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent is a good starting point.
 
 I'm quite happy with the results, but I feel I could go much further. I think that my AI should adapt its strategy during the game. For example, I thought that following my opponent's path being close to him (1 square away from him) was a good option as a first player during the first part of the game. But my first tries haven't been successfull...
 Another feeling concerns the symmetries of the game. I've not done anything with it, but I think I could be more efficient taking that into account.
