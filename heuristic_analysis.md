@@ -101,7 +101,22 @@ The results have been tested 5 times on tournaments of 20 games. They show an av
 
 # Heuristic 3: Aggressive player while 60% of the game board is free, then becoming less aggressive keeping the center
 ## Description
+I think that the strategy should evolve during the game... with the feeling that aggressivity is key during the first part of the game, then trying to keep the center during the second part of the game, while being less aggressive.
 
+```
+def adaptive(game, player):
+    board_size = game.height * game.width
+    moves_to_board = game.move_count / board_size
+    
+    if moves_to_board > 0.4:
+        return aggressive(game, player)
+    else:
+        return aggressive_center(game, player)
+```
 ## Results
+### Data
+
+### Analysis
+
 
 # Conclusion / next steps
