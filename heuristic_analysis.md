@@ -27,9 +27,13 @@ This one is directly inspired from the lecture: We'll be really aggressive using
 ```
 player_moves = len(game.get_legal_moves(player))
 opponent_moves = len(game.get_legal_moves(game.get_opponent(player)))
-return float(player_moves) - 2 * float(opponent_moves)
+return float(player_moves) - 4 * float(opponent_moves)
 ```
 ## Results
+### Data
+
+### Analysis
+
 
 # Heuristic 2: Aggressive player trying to keep the center
 ## Description
