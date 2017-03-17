@@ -137,7 +137,7 @@ Results:
 Student             70.14%
 ```
 ### Analysis
-The results have been tested 2 times on tournaments of 100 games. They show an average improvement of 3% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. But it remains a little bit less than the aggressive option.
+The results have been tested 2 times on tournaments of 100 games. They show an average improvement of less than 3% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. But it remains a little bit less than the aggressive option. Maybe Should I be more aggressive while keeping this center option...
 
 # Heuristic 3: Aggressive player while 60% of the game board is free, then becoming less aggressive keeping the center
 ## Description
