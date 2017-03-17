@@ -40,18 +40,18 @@ Playing Matches:
 ----------
 tournament.py:100: UserWarning: One or more agents lost a match this round due to timeout. The get_move() function must return before time_left() reaches 0 ms. You will need to leave some time for the function to return, and may need to increase this margin to avoid timeouts during  tournament play.
   warnings.warn(TIMEOUT_WARNING)
-  Match 1: ID_Improved vs   Random    	Result: 15 to 5
-  Match 2: ID_Improved vs   MM_Null   	Result: 14 to 6
-  Match 3: ID_Improved vs   MM_Open   	Result: 14 to 6
-  Match 4: ID_Improved vs MM_Improved 	Result: 10 to 10
-  Match 5: ID_Improved vs   AB_Null   	Result: 12 to 8
-  Match 6: ID_Improved vs   AB_Open   	Result: 14 to 6
-  Match 7: ID_Improved vs AB_Improved 	Result: 15 to 5
+  Match 1: ID_Improved vs   Random    	Result: 84 to 16
+  Match 2: ID_Improved vs   MM_Null   	Result: 71 to 29
+  Match 3: ID_Improved vs   MM_Open   	Result: 62 to 38
+  Match 4: ID_Improved vs MM_Improved 	Result: 63 to 37
+  Match 5: ID_Improved vs   AB_Null   	Result: 68 to 32
+  Match 6: ID_Improved vs   AB_Open   	Result: 60 to 40
+  Match 7: ID_Improved vs AB_Improved 	Result: 70 to 30
 
 
 Results:
 ----------
-ID_Improved         67.14%
+ID_Improved         68.29%
 
 *************************
    Evaluating: Student   
@@ -59,21 +59,21 @@ ID_Improved         67.14%
 
 Playing Matches:
 ----------
-  Match 1:   Student   vs   Random    	Result: 18 to 2
-  Match 2:   Student   vs   MM_Null   	Result: 16 to 4
-  Match 3:   Student   vs   MM_Open   	Result: 12 to 8
-  Match 4:   Student   vs MM_Improved 	Result: 13 to 7
-  Match 5:   Student   vs   AB_Null   	Result: 17 to 3
-  Match 6:   Student   vs   AB_Open   	Result: 11 to 9
-  Match 7:   Student   vs AB_Improved 	Result: 12 to 8
+  Match 1:   Student   vs   Random    	Result: 89 to 11
+  Match 2:   Student   vs   MM_Null   	Result: 80 to 20
+  Match 3:   Student   vs   MM_Open   	Result: 71 to 29
+  Match 4:   Student   vs MM_Improved 	Result: 57 to 43
+  Match 5:   Student   vs   AB_Null   	Result: 74 to 26
+  Match 6:   Student   vs   AB_Open   	Result: 67 to 33
+  Match 7:   Student   vs AB_Improved 	Result: 67 to 33
 
 
 Results:
 ----------
-Student             70.71%
+Student             72.14%
 ```
 ### Analysis
-The results have been tested 5 times on tournaments of 20 games. It shows a tiny improvement over ID_Improved. Don't have a precise explanantion. I feel being aggressive in this game is important but maybe my multiplier is to high and "hide" better options for the player, while taking too much into account the reduction of the opponent's moves.
+The results have been tested 2 times on tournaments of 100 games. It shows an average improvement of 4% over ID_Improved. I felt being aggressive in this game was important and it's the case: Trying to select the maximum number of possible moves while reducing as much as possible the moves of the opponent is the road to success.
 
 # Heuristic 2: Aggressive player trying to keep the center
 ## Description
@@ -102,20 +102,20 @@ return ((player_moves + player_center_moves) - (opponent_moves + opponent_center
 
 Playing Matches:
 ----------
+  Match 1: ID_Improved vs   Random    	Result: 90 to 10
+  Match 2: ID_Improved vs   MM_Null   	Result: 74 to 26
+  Match 3: ID_Improved vs   MM_Open   	Result: 62 to 38
 tournament.py:100: UserWarning: One or more agents lost a match this round due to timeout. The get_move() function must return before time_left() reaches 0 ms. You will need to leave some time for the function to return, and may need to increase this margin to avoid timeouts during  tournament play.
   warnings.warn(TIMEOUT_WARNING)
-  Match 1: ID_Improved vs   Random    	Result: 16 to 4
-  Match 2: ID_Improved vs   MM_Null   	Result: 13 to 7
-  Match 3: ID_Improved vs   MM_Open   	Result: 11 to 9
-  Match 4: ID_Improved vs MM_Improved 	Result: 12 to 8
-  Match 5: ID_Improved vs   AB_Null   	Result: 15 to 5
-  Match 6: ID_Improved vs   AB_Open   	Result: 13 to 7
-  Match 7: ID_Improved vs AB_Improved 	Result: 13 to 7
+  Match 4: ID_Improved vs MM_Improved 	Result: 63 to 37
+  Match 5: ID_Improved vs   AB_Null   	Result: 69 to 31
+  Match 6: ID_Improved vs   AB_Open   	Result: 59 to 41
+  Match 7: ID_Improved vs AB_Improved 	Result: 55 to 45
 
 
 Results:
 ----------
-ID_Improved         66.43%
+ID_Improved         67.43%
 
 *************************
    Evaluating: Student   
@@ -123,21 +123,21 @@ ID_Improved         66.43%
 
 Playing Matches:
 ----------
-  Match 1:   Student   vs   Random    	Result: 17 to 3
-  Match 2:   Student   vs   MM_Null   	Result: 17 to 3
-  Match 3:   Student   vs   MM_Open   	Result: 14 to 6
-  Match 4:   Student   vs MM_Improved 	Result: 13 to 7
-  Match 5:   Student   vs   AB_Null   	Result: 17 to 3
-  Match 6:   Student   vs   AB_Open   	Result: 15 to 5
-  Match 7:   Student   vs AB_Improved 	Result: 14 to 6
+  Match 1:   Student   vs   Random    	Result: 76 to 24
+  Match 2:   Student   vs   MM_Null   	Result: 81 to 19
+  Match 3:   Student   vs   MM_Open   	Result: 62 to 38
+  Match 4:   Student   vs MM_Improved 	Result: 64 to 36
+  Match 5:   Student   vs   AB_Null   	Result: 75 to 25
+  Match 6:   Student   vs   AB_Open   	Result: 67 to 33
+  Match 7:   Student   vs AB_Improved 	Result: 66 to 34
 
 
 Results:
 ----------
-Student             76.43%
+Student             70.14%
 ```
 ### Analysis
-The results have been tested 5 times on tournaments of 20 games. They show an average improvement of 10% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. 
+The results have been tested 2 times on tournaments of 100 games. They show an average improvement of 3% compared to the improved heuristic. It seems that I'm on the right way: Being moderately aggressive while taking the center of the board into account has a positive impact on my AI success, which seems to me quite logical, as these squares are the ones giving the highest number of options for the future moves. But it remains a little bit less than the aggressive option.
 
 # Heuristic 3: Aggressive player while 60% of the game board is free, then becoming less aggressive keeping the center
 ## Description
@@ -198,12 +198,14 @@ Student             67.86%
 The results have been tested 5 times on tournaments of 20 games. I'm quite disappointed with these results. But thinking about it, It seems eventually logical: Keeping the center should be more important at the beginning of the game... But I feel creating an adaptive strategy is a good idea. I'll have to further study this option.
 
 # Conclusion / next steps
-I feel I've clearly stumbled upon an important parameter with the hidden rule "keep the center !"
-Heuristic 2 is the winner.
-As explained in my analysis, it seems logical to me as these squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent is a good starting point.
+The aggressive player is the most successfull game-playing agent.
+Heuristic 1 is the winner.
+As explained in my analysis, it seems logical to me as optimizing the number of my moves while reducing as much as possible the number of my opponent's move leads to less options to my opponent.
 
 I'm quite happy with the results, but I feel I could go much further. I think that my AI should adapt its strategy during the game. For example, I thought that following my opponent's path being close to him (1 square away from him) was a good option as a first player during the first part of the game. But my first tries haven't been successfull...
 Another feeling concerns the symmetries of the game. I've not done anything with it, but I think I could be more efficient taking that into account.
+
+I'm also quite disappointed by the Heuristic 2 results. I thought that these center squares have the highest number of future options, so optimizing these options for me while trying to reduce it for my opponent was a good starting point... Maybe I should try different multipliers.
 
 Last but not least, I should tweak the multipliers and levels to find the most accurate results.
 
