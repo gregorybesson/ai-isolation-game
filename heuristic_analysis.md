@@ -162,18 +162,20 @@ def adaptive(game, player):
 
 Playing Matches:
 ----------
-  Match 1: ID_Improved vs   Random    	Result: 18 to 2
-  Match 2: ID_Improved vs   MM_Null   	Result: 16 to 4
-  Match 3: ID_Improved vs   MM_Open   	Result: 11 to 9
-  Match 4: ID_Improved vs MM_Improved 	Result: 10 to 10
-  Match 5: ID_Improved vs   AB_Null   	Result: 16 to 4
-  Match 6: ID_Improved vs   AB_Open   	Result: 15 to 5
-  Match 7: ID_Improved vs AB_Improved 	Result: 12 to 8
+  Match 1: ID_Improved vs   Random    	Result: 81 to 19
+tournament.py:100: UserWarning: One or more agents lost a match this round due to timeout. The get_move() function must return before time_left() reaches 0 ms. You will need to leave some time for the function to return, and may need to increase this margin to avoid timeouts during  tournament play.
+  warnings.warn(TIMEOUT_WARNING)
+  Match 2: ID_Improved vs   MM_Null   	Result: 75 to 25
+  Match 3: ID_Improved vs   MM_Open   	Result: 64 to 36
+  Match 4: ID_Improved vs MM_Improved 	Result: 59 to 41
+  Match 5: ID_Improved vs   AB_Null   	Result: 76 to 24
+  Match 6: ID_Improved vs   AB_Open   	Result: 65 to 35
+  Match 7: ID_Improved vs AB_Improved 	Result: 71 to 29
 
 
 Results:
 ----------
-ID_Improved         70.00%
+ID_Improved         70.14%
 
 *************************
    Evaluating: Student   
@@ -181,25 +183,28 @@ ID_Improved         70.00%
 
 Playing Matches:
 ----------
-  Match 1:   Student   vs   Random    	Result: 16 to 4
-  Match 2:   Student   vs   MM_Null   	Result: 13 to 7
-  Match 3:   Student   vs   MM_Open   	Result: 14 to 6
-  Match 4:   Student   vs MM_Improved 	Result: 9 to 11
-  Match 5:   Student   vs   AB_Null   	Result: 18 to 2
-  Match 6:   Student   vs   AB_Open   	Result: 12 to 8
-  Match 7:   Student   vs AB_Improved 	Result: 13 to 7
+  Match 1:   Student   vs   Random    	Result: 81 to 19
+  Match 2:   Student   vs   MM_Null   	Result: 81 to 19
+  Match 3:   Student   vs   MM_Open   	Result: 67 to 33
+  Match 4:   Student   vs MM_Improved 	Result: 57 to 43
+  Match 5:   Student   vs   AB_Null   	Result: 69 to 31
+  Match 6:   Student   vs   AB_Open   	Result: 73 to 27
+  Match 7:   Student   vs AB_Improved 	Result: 55 to 45
 
 
 Results:
 ----------
-Student             67.86%
+Student             69.00%
 ```
 ### Analysis
-The results have been tested 5 times on tournaments of 20 games. I'm quite disappointed with these results. But thinking about it, It seems eventually logical: Keeping the center should be more important at the beginning of the game... But I feel creating an adaptive strategy is a good idea. I'll have to further study this option.
+The results have been tested 2 times on tournaments of 100 games. I'm quite disappointed with these results. But thinking about it, It seems eventually logical: Keeping the center should be more important at the beginning of the game... But I feel creating an adaptive strategy is a good idea. I'll have to further study this option.
 
 # Conclusion / next steps
 The aggressive player is the most successfull game-playing agent.
-Heuristic 1 is the winner.
+Heuristic 1 is the winner. 
+
+![Screenshot](/screenshot.png?raw=true)
+
 As explained in my analysis, it seems logical to me as optimizing the number of my moves while reducing as much as possible the number of my opponent's move leads to less options to my opponent.
 
 I'm quite happy with the results, but I feel I could go much further. I think that my AI should adapt its strategy during the game. For example, I thought that following my opponent's path being close to him (1 square away from him) was a good option as a first player during the first part of the game. But my first tries haven't been successfull...
